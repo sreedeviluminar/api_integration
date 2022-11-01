@@ -7,6 +7,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 
 class HomePageView extends StatelessWidget {
+
   final ProductController productController = Get.put(ProductController());
 
   @override
@@ -27,8 +28,8 @@ class HomePageView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
-              children: [
-                const Expanded(
+              children: const [
+                Expanded(
                   child: Text(
                     "ShopMe",
                     style: TextStyle(
@@ -44,8 +45,8 @@ class HomePageView extends StatelessWidget {
             child: Obx(
               () {
                 if (productController.isLoading.value) {
-                  return Center(child: CircularProgressIndicator());
-                } else
+                  return const Center(child: CircularProgressIndicator());
+                } else {
                   return StaggeredGridView.countBuilder(
                     crossAxisCount: 2,
                     itemCount: productController.productList.length,
@@ -56,6 +57,7 @@ class HomePageView extends StatelessWidget {
                     },
                     staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                   );
+                }
               },
             ),
           ),
