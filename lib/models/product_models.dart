@@ -1,7 +1,6 @@
 // To parse this JSON data, do
 //
 //     final productsModel = productsModelFromJson(jsonString);
-
 import 'dart:convert';
 
 List<ProductsModel> productsModelFromJson(String str) =>
@@ -49,7 +48,6 @@ class ProductsModel {
         "rating": rating!.toJson(),
       };
 }
-
 class Rating {
   Rating({
     this.rate,
